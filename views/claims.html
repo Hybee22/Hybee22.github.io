@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bimini HiX | Claims</title>
+    <link rel="stylesheet" href="../assets/css/materialize.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://kit.fontawesome.com/d65fb48c9b.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="red lighten-1">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#!" class="brand-logo left">Bimini HiX</a>
+            <a href="#" data-target="mobile-nav" class="right sidenav-trigger"
+              ><i class="fas fa-bars"></i
+            ></a>
+            <ul class="right hide-on-med-and-down">
+              <!-- Dropdown Trigger -->
+              <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdown1"
+                  >Records <i class="fa fa-caret-down right"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <ul id="dropdown1" class="dropdown-content drop-content">
+        <li>
+          <a href="auth.html">Authorization</a>
+        </li>
+        <li>
+          <a href="claims.html">Claims</a>
+        </li>
+        <li>
+          <a href="enrollment.html">Enrollment</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Layout -->
+    <!-- Layout -->
+    <div class="container">
+      <h5 class="center">Claims</h5>
+      <br />
+      <!-- Modal Trigger -->
+      <a
+        href="#modal1"
+        id="add-claim"
+        class="modal-trigger right btn-floating btn-large waves-effect waves-light red lighten-1"
+      >
+        <div class="fa fa-plus"></div>
+      </a>
+      <table class="highlight centered striped responsive-table">
+        <thead>
+          <tr>
+            <th>HMO ID</th>
+            <th>Hospital ID</th>
+            <th>Claim ID</th>
+            <th>Policy Number</th>
+            <th>Member Number</th>
+            <th>Status</th>
+            <th>...</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-body">
+          <!-- ..Row and Coulumns Here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal to Add Claim Request -->
+
+    <!-- Request Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content" style="width:100%; height: 700px">
+        <div>
+          <h5>Add Claims Request</h5>
+        </div>
+        <div class="center">
+          <form id="claim-form">
+            <div class="row">
+              <div class="input-field col s6">
+                <select id="HMO_Id">
+                  <option value="" disabled selected>HMO ID</option>
+                  <option value="HMO210">HMO210</option>
+                  <option value="HMO211">HMO211</option>
+                  <option value="HMO212">HMO212</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="claim" id="claim_id" required />
+                <label for="claim">Claim ID</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="policy" id="policy_number" required />
+                <label for="policy">Policy Number</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="hospital" id="hospital_id" required />
+                <label for="hospital">Hospital ID</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="member" id="member_number" required />
+                <label for="member">Member Number</label>
+              </div>
+            </div>
+            <!-- Tests -->
+            <div class="row">
+              <!-- Tests Table -->
+              <div class="col s12">
+                <div id="add-test">
+                  <div class="input-field col s4">
+                    <input type="text" name="test-name" id="test-name" />
+                    <label for="test-name">Test</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input type="text" name="unit-cost" id="test-unit-cost" />
+                    <label for="unit-cost">Unit Cost</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input type="text" name="units" id="test-units" />
+                    <label for="units">Units</label>
+                  </div>
+                </div>
+                <table
+                  class="highlight centered striped responsive-table test-table"
+                >
+                  <thead>
+                    <tr>
+                      <th>Claim Tests</th>
+                      <th>Unit Cost</th>
+                      <th>Units</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="test-table-body">
+                    <!-- ..Row and Coulumns Here -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Treatments Table -->
+              <div class="col s12">
+                <div id="add-treatment">
+                  <div class="input-field col s4">
+                    <input
+                      type="text"
+                      name="treatment-name"
+                      id="treatment-name"
+                    />
+                    <label for="treatment-name">Treatment</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input
+                      type="text"
+                      name="unit-cost"
+                      id="treatment-unit-cost"
+                    />
+                    <label for="unit-cost">Unit Cost</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input type="text" name="units" id="treatment-units" />
+                    <label for="units">Units</label>
+                  </div>
+                </div>
+                <table
+                  class="highlight centered striped responsive-table treatment-table"
+                >
+                  <thead>
+                    <tr>
+                      <th>Treatments</th>
+                      <th>Unit Cost</th>
+                      <th>Units</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="treatment-table-body">
+                    <!-- ..Row and Coulumns Here -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Medications Table -->
+              <div class="col s12">
+                <div id="add-medication">
+                  <div class="input-field col s4">
+                    <input
+                      type="text"
+                      name="medication-name"
+                      id="medication-name"
+                    />
+                    <label for="medication-name">Medication</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input
+                      type="text"
+                      name="unit-cost"
+                      id="medication-unit-cost"
+                    />
+                    <label for="unit-cost">Unit Cost</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input type="text" name="units" id="medication-units" />
+                    <label for="units">Units</label>
+                  </div>
+                </div>
+                <table
+                  class="highlight centered striped responsive-table medication-table"
+                >
+                  <thead>
+                    <tr>
+                      <th>Medications</th>
+                      <th>Unit Cost</th>
+                      <th>Units</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="medication-table-body">
+                    <!-- ..Row and Coulumns Here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <br />
+            <a
+              href="#!"
+              id="show-table"
+              class="input-field left btn green lighten-3"
+            >
+              Show Tables
+            </a>
+            <div class="input-field right">
+              <a
+                href="#!"
+                id="add-claim-request"
+                class="modal-close waves-effect waves-green btn red lighten-1"
+                >Add Claim Request</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Individual View -->
+    <div id="modal2" class="modal">
+      <div class="modal-content" style="width:100%; height: 700px">
+        <h5>Treatment Claims Request</h5>
+        <div class="center">
+          <form id="claim-form_readonly">
+            <div class="row">
+              <div class="input-field col s6">
+                <input type="text" name="HMO" id="HMO_Id_readonly" />
+                <label class="active" for="HMO">HMO</label>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="policy_readonly"
+                  id="policy_number_readonly"
+                />
+                <label class="active" for="policy_readonly"
+                  >Policy Number</label
+                >
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="hospital_readonly"
+                  id="hospital_id_readonly"
+                />
+                <label class="active" for="hospital_readonly"
+                  >Hospital ID</label
+                >
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="claim_readonly"
+                  id="claim_id_readonly"
+                />
+                <label class="active" for="claim_readonly">Claim ID</label>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="member_readonly"
+                  id="member_number_readonly"
+                />
+                <label class="active" for="member_readonly"
+                  >Member Number</label
+                >
+              </div>
+              <!-- Items -->
+              <div class="row">
+                <!-- Tests -->
+                <div class="row">
+                  <!-- Tests Table -->
+                  <div class="col s12">
+                    <div id="add-test-readonly">
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="test-name-readonly"
+                          id="test-name-readonly"
+                        />
+                        <label for="test-name-readonly">Test</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="unit-cost-readonly"
+                          id="test-unit-cost-readonly"
+                        />
+                        <label for="unit-cost-readonly">Unit Cost</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="units-readonly"
+                          id="test-units-readonly"
+                        />
+                        <label for="units-readonly">Units</label>
+                      </div>
+                    </div>
+                    <table
+                      class="highlight centered striped responsive-table test-table-readonly"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Claim Tests</th>
+                          <th>Unit Cost</th>
+                          <th>Units</th>
+                        </tr>
+                      </thead>
+
+                      <tbody class="test-table-body-readonly">
+                        <!-- ..Row and Coulumns Here -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Treatments Table -->
+                  <div class="col s12">
+                    <div id="add-treatment-readonly">
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="treatment-name-readonly"
+                          id="treatment-name-readonly"
+                        />
+                        <label for="treatment-name-readonly">Treatment</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="unit-cost-readonly"
+                          id="treatment-unit-cost-readonly"
+                        />
+                        <label for="unit-cost-readonly">Unit Cost</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="units-readonly"
+                          id="treatment-units-readonly"
+                        />
+                        <label for="units-readonly">Units</label>
+                      </div>
+                    </div>
+                    <table
+                      class="highlight centered striped responsive-table treatment-table-readonly"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Treatments</th>
+                          <th>Unit Cost</th>
+                          <th>Units</th>
+                        </tr>
+                      </thead>
+
+                      <tbody class="treatment-table-body-readonly">
+                        <!-- ..Row and Coulumns Here -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Medications Table -->
+                  <div class="col s12">
+                    <div id="add-medication-readonly">
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="medication-name-readonly"
+                          id="medication-name-readonly"
+                        />
+                        <label for="medication-name-readonly">Medication</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="unit-cost-readonly"
+                          id="medication-unit-cost-readonly"
+                        />
+                        <label for="unit-cost-readonly">Unit Cost</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <input
+                          type="text"
+                          name="units-readonly"
+                          id="medication-units-readonly"
+                        />
+                        <label for="units-readonly">Units</label>
+                      </div>
+                    </div>
+                    <table
+                      class="highlight centered striped responsive-table medication-table-readonly"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Medications</th>
+                          <th>Unit Cost</th>
+                          <th>Units</th>
+                        </tr>
+                      </thead>
+
+                      <tbody class="medication-table-body-readonly">
+                        <!-- ..Row and Coulumns Here -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-field col s12">
+              <div class="left left-side-btn">
+                <a
+                  href="#!"
+                  class="btn waves-effect update-btn yellow lighten-1"
+                  id="update-btn"
+                  >Update Claim</a
+                >
+                <a
+                  href="#!"
+                  class="btn waves-effect delete-btn red lighten-1"
+                  id="delete-btn"
+                  >Delete Claim</a
+                >
+              </div>
+              <div class="right">
+                <a
+                  href="#!"
+                  id="close-request"
+                  class="modal-close waves-effect waves-green btn red lighten-1"
+                  >Close</a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/materialize.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/claims.js"></script>
+  </body>
+</html>

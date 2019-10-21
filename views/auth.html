@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bimini HiX | Authorization</title>
+    <link rel="stylesheet" href="../assets/css/materialize.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://kit.fontawesome.com/d65fb48c9b.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="red lighten-1">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#!" class="brand-logo left">Bimini HiX</a>
+            <a href="#" data-target="mobile-nav" class="right sidenav-trigger"
+              ><i class="fas fa-bars"></i
+            ></a>
+            <ul class="right hide-on-med-and-down">
+              <!-- Dropdown Trigger -->
+              <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdown1"
+                  >Records <i class="fa fa-caret-down right"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <ul id="dropdown1" class="dropdown-content drop-content">
+        <li>
+          <a href="auth.html">Authorization</a>
+        </li>
+        <li>
+          <a href="claims.html">Claims</a>
+        </li>
+        <li>
+          <a href="enrollment.html">Enrollment</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Layout -->
+    <div class="container">
+      <h5 class="center">Authorization</h5>
+      <br />
+      <!-- Modal Trigger -->
+      <a
+        href="#modal1"
+        id="add-auth"
+        class="modal-trigger right btn-floating btn-large waves-effect waves-light red lighten-1"
+      >
+        <div class="fa fa-plus"></div>
+      </a>
+      <table class="highlight centered responsive-table">
+        <thead>
+          <tr>
+            <th>HMO ID</th>
+            <th>Hospital ID</th>
+            <th>Claim ID</th>
+            <th>Policy Number</th>
+            <th>Member Number</th>
+            <th>Status</th>
+            <th>...</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-body">
+          <!-- ..Row and Coulumns Here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal to Add Auth Request -->
+
+    <!-- Request Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content" style="width:100%; height: 700px">
+        <h5>Add Authorization Request</h5>
+        <div class="center">
+          <form id="auth-form">
+            <div class="row">
+              <div class="input-field col s6">
+                <select id="HMO_Id">
+                  <option value="" disabled selected>HMO ID</option>
+                  <option value="HMO210">HMO210</option>
+                  <option value="HMO211">HMO211</option>
+                  <option value="HMO212">HMO212</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="policy" id="policy_number" required />
+                <label for="policy">Policy Number</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="hospital" id="hospital_id" required />
+                <label for="hospital">Hospital ID</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="claim" id="claim_id" required />
+                <label for="claim">Claim ID</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" name="member" id="member_number" required />
+                <label for="member">Member Number</label>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea
+                    id="diagnosis"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label for="diagnosis">Diagnosis</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea
+                    id="narration"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label for="narration">Narration</label>
+                </div>
+              </div>
+              <!-- Items -->
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" name="items" id="item" />
+                  <label for="items">Items</label>
+                </div>
+                <!-- Items List -->
+                <div class="col s12 left-align">
+                  <ul class="collection collection-items">
+                    <a href="#!" class="collection-item active lighten-1 red"
+                      >Items List</a
+                    >
+                    <!-- Output Rest of List -->
+                    <div class="list-output"></div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="input-field right">
+              <a
+                href="#!"
+                id="add-request"
+                class="modal-close waves-effect waves-green btn red lighten-1"
+                >Add</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Individual View -->
+    <div id="modal2" class="modal">
+      <div class="modal-content" style="width:100%; height: 700px">
+        <h5>Treatment Authorization Request</h5>
+        <div class="center">
+          <form id="auth-form_readonly">
+            <div class="row">
+              <div class="input-field col s6">
+                <input type="text" name="HMO" id="HMO_Id_readonly" />
+                <label class="active" for="HMO">HMO</label>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="policy_readonly"
+                  id="policy_number_readonly"
+                />
+                <label class="active" for="policy_readonly"
+                  >Policy Number</label
+                >
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="hospital_readonly"
+                  id="hospital_id_readonly"
+                />
+                <label class="active" for="hospital_readonly"
+                  >Hospital ID</label
+                >
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="claim_readonly"
+                  id="claim_id_readonly"
+                />
+                <label class="active" for="claim_readonly">Claim ID</label>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  name="member_readonly"
+                  id="member_number_readonly"
+                />
+                <label class="active" for="member_readonly"
+                  >Member Number</label
+                >
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea
+                    id="diagnosis_readonly"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label class="active" for="diagnosis_readonly"
+                    >Diagnosis</label
+                  >
+                </div>
+                <div class="input-field col s12">
+                  <textarea
+                    id="narration_readonly"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label class="active" for="narration_readonly"
+                    >Narration</label
+                  >
+                </div>
+              </div>
+              <!-- Items -->
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" name="items_readonly" id="item_readonly" />
+                  <label class="active" for="items_readonly">Items</label>
+                </div>
+                <!-- Items List -->
+                <div class="col s12 left-align">
+                  <ul class="collection collection-items">
+                    <a href="#!" class="collection-item active lighten-1 red"
+                      >Items List</a
+                    >
+                    <!-- Output Rest of List -->
+                    <div class="list-output_readonly"></div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="input-field col s12">
+              <div class="left left-side-btn">
+                <a
+                  href="#!"
+                  class="btn waves-effect update-btn yellow lighten-1"
+                  id="update-btn"
+                  >Update Request</a
+                >
+                <a
+                  href="#!"
+                  class="btn waves-effect delete-btn red lighten-1"
+                  id="delete-btn"
+                  >Delete Request</a
+                >
+              </div>
+              <div class="right">
+                <a
+                  href="#!"
+                  id="close-request"
+                  class="modal-close waves-effect waves-green btn red lighten-1"
+                  >Close</a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/materialize.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>
